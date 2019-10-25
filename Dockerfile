@@ -6,7 +6,7 @@ MAINTAINER kdy
 
 VOLUME /config
 
-ENV OC_VERSION=0.12.3
+ENV OC_VERSION=0.12.4
 
 # Install dependencies
 RUN buildDeps=" \
