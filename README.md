@@ -32,7 +32,7 @@ The container is available from the Docker registry and this is the simplest way
 $ docker run --privileged  -d \
               -p 4443:4443 \
               -p 4443:4443/udp \
-              kdy999/openconnect:1.12.4
+              kdy999/openconnect:0.12.4
 ```
 ### With customizing cert variables
 ```
@@ -45,7 +45,7 @@ $ docker run --privileged  -d \
               -e "SRV_CN=vpn.example.com" \
               -e "SRV_ORG=MyCompany" \
               -e "SRV_DAYS=9999" \
-              kdy999/openconnect:1.12.4
+              kdy999/openconnect:0.12.4
 ```
 
 ## Intermediate Configuration (Providing own certs in /config/certs and running on port 443):
@@ -64,7 +64,7 @@ $ docker run --privileged  -d \
               -e "SPLIT_DNS_DOMAINS=example.com" \
               -p 443:443 \
               -p 443:443/udp \
-              kdy999/openconnect:1.12.4
+              kdy999/openconnect:0.12.4
 ```
 
 ## Advanced Configuration:
