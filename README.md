@@ -13,8 +13,9 @@ This container is an automated build linked to [alpine](https://hub.docker.com/_
 
 # Docker Features
 * Base: Alpine Edge
-* Latest OpenConnect Server 0.11.10
-* Size: 57.1MB 
+* Current OpenConnect Server 0.12.4
+* Latest OpenConnect Server 0.12.5
+* Size: 64.5MB 
 * Modification of the listening port for more networking versatility
 * Customizing the DNS servers used for queries over the VPN
 * Supports tunneling all traffic over the VPN or tunneling only specific routes via split-include
@@ -31,7 +32,7 @@ The container is available from the Docker registry and this is the simplest way
 $ docker run --privileged  -d \
               -p 4443:4443 \
               -p 4443:4443/udp \
-              markusmcnugen/openconnect
+              kdy999/openconnect:1.12.4
 ```
 ### With customizing cert variables
 ```
@@ -44,7 +45,7 @@ $ docker run --privileged  -d \
               -e "SRV_CN=vpn.example.com" \
               -e "SRV_ORG=MyCompany" \
               -e "SRV_DAYS=9999" \
-              markusmcnugen/openconnect
+              kdy999/openconnect:1.12.4
 ```
 
 ## Intermediate Configuration (Providing own certs in /config/certs and running on port 443):
@@ -63,7 +64,7 @@ $ docker run --privileged  -d \
               -e "SPLIT_DNS_DOMAINS=example.com" \
               -p 443:443 \
               -p 443:443/udp \
-              markusmcnugen/openconnect
+              kdy999/openconnect:1.12.4
 ```
 
 ## Advanced Configuration:
@@ -79,6 +80,7 @@ This container allows for advanced configurations for power users who know what 
 |`TUNNEL_ROUTES`| No | Comma delimited tunnel routes in CIDR notation |`TUNNEL_ROUTES=192.168.1.0/24`|
 |`SPLIT_DNS_DOMAINS`| No | Comma delimited dns domains |`SPLIT_DNS_DOMAINS=example.com`|
 |`POWER_USER`| No | Allows for advanced manual configuration via host mounted /config volume |`POWER_USER=no`|
+|`DEBUGLEVEL`| No | Debug level for ocserv (must be between zero and 9999) |`DEBUGLEVEL=1`|
 
 ## Volumes
 | Volume | Required | Function | Example |
