@@ -15,11 +15,11 @@ This container is an automated build linked to [alpine](https://hub.docker.com/_
 * Base: Alpine Edge
 * **Current OpenConnect Server 0.12.3**
 * Latest OpenConnect Server 0.12.5
-* Size: 64.5MB 
+* Size: 64.5MB
 * Modification of the listening port for more networking versatility
 * Customizing the DNS servers used for queries over the VPN
 * Supports tunneling all traffic over the VPN or tunneling only specific routes via split-include
-* Config directory can be mounted to a host directory for persistence 
+* Config directory can be mounted to a host directory for persistence
 * Create certs automatically using default or provided values, or drop your own certs in /config/certs
 * Advanced manual configuration for power users
 
