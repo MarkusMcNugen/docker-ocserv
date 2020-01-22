@@ -247,12 +247,20 @@ else
 	echo "$(date) [info] Using existing certificates in /config/certs"
 fi
 
+
+if [ -z "$DEBUGLEVEL" ]; then
+	DEBUGLEVEL=1
+else
+  DEBUGLEVEL=$DEBUGLEVEL
+fi
+
 # Open ipv4 ip forward
 sysctl -w net.ipv4.ip_forward=1
 
 # Enable NAT forwarding
 iptables -t nat -A POSTROUTING -j MASQUERADE
-iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+#iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS
 
 # Enable TUN device
 mkdir -p /dev/net
@@ -262,4 +270,4 @@ chmod 600 /dev/net/tun
 chmod -R 777 /config
 
 # Run OpenConnect Server
-exec "$@"
+exec "$@ -d $DEBUGLEVEL"
